@@ -14,9 +14,9 @@ class TestCryptoPrimitives(unittest.TestCase):
     def test_pow(self):
         pow_primitive = ProofOfWorkPrimitive(difficulty_bits=12)  # smaller difficulty for test
         challenge = "HelloWorld"
-        nonce, hash_hex = pow_primitive.create_proof(challenge)
+        nonce = pow_primitive.create_proof(challenge)
         # Check proof
-        self.assertTrue(pow_primitive.verify_proof(challenge, nonce, hash_hex))
+        self.assertTrue(pow_primitive.verify_proof(challenge, nonce))
 
     def test_vdf(self):
         # Use fewer iterations for testing speed
